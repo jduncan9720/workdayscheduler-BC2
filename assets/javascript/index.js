@@ -8,10 +8,11 @@ function renderHour() {
     var hourId = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"]
     for (let i = 0; i < hourId.length; i++) {
         $("#timeSheet").append([
-            $('<div>', { "class": "row" }).append([
+            $('<div>', { "class": "row" })
+            .append([
                 $('<div>', { "class": "hour col-lg-2" }),
                 $('<textarea>', { "class": "text col-lg-8", "id": hourId[i] }),
-                $('<div>', { "class": "saveBtn col-lg-2" }),
+                $('<div>', { "class": "saveBtn col-lg-2", "id": "hour" + [i]}),
             ])
         ])
     }
@@ -48,13 +49,13 @@ function hourly() {
             $("#3pm").addClass("present");
             break;
         case "4pm":
-            // $(".text").removeClass("")
             $("#4pm").addClass("present");
-            // $(this).prevAll('.text').addClass("past");
-            // $(this).nextAll('.text').addClass("future");
             break;
         case "5pm":
-
+            // $(".text").removeClass("past present future")
+            $("#5pm").addClass("present");
+            $(".saveBtn").prev().addClass("past");
+            // $(this).nextAll('.text').addClass("future");
             break;  
     }
     setTimeout(hourly, 1000);
