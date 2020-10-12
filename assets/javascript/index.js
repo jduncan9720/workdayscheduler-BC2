@@ -11,10 +11,27 @@
 // THEN the text for that event is saved in local storage
 // WHEN I refresh the page
 // THEN the saved events persist
+var currentDay = moment().format('MMMM Do YYYY, h:mm:ss a');
+var currentTime = moment().format('h:mm:ss a');
+var currentHour = moment().format('ha');
 
 function renderHour() {
-    for (let i = 0; i < 8; i++) {
-        var hourDiv = $('<div class="row" id="nineAm"><div class="hour col-lg-2"></div><textarea class="col-lg-8"></textarea><div class="saveBtn col-lg-2"></div></div>')
+    var hourId = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"]
+    for (let i = 0; i < hourId.length; i++) {
+        var hourDiv = $("<div>", {
+            "class": "row",
+            "id": hourId[i]
+        })
+            .append('<div class="hour col-lg-2">')
+            .append('<textarea class="col-lg-8">')
+            .append('<div class="saveBtn col-lg-2">')
+
         $("#timeSheet").append(hourDiv)
     }
+   renderClock()
 }
+
+function renderClock() {
+    $("#currentDay").text(moment().format('MMMM Do YYYY, h:mm:ss a'));
+    setTimeout(renderClock, 1000);
+};
