@@ -18,12 +18,12 @@ function renderHour() {
     renderClock()
     hourly()
 }
-
+//Creates live clock in header
 function renderClock() {
     $("#currentDay").text(moment().format('MMMM Do YYYY, h:mm:ss a'));
     setTimeout(renderClock, 1000);
 };
-
+//Checks for time and changes colors of rows
 function hourly() {
     switch (currentHour) {
         case "9am":
@@ -48,8 +48,10 @@ function hourly() {
             $("#3pm").addClass("present");
             break;
         case "4pm":
+            // $(".text").removeClass("")
             $("#4pm").addClass("present");
             // $(this).prevAll('.text').addClass("past");
+            // $(this).nextAll('.text').addClass("future");
             break;
         case "5pm":
 
