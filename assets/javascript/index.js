@@ -15,6 +15,7 @@ var currentDay = moment().format('MMMM Do YYYY, h:mm:ss a');
 var currentTime = moment().format('h:mm:ss a');
 var currentHour = moment().format('ha');
 
+//Create the rows and columns along with classes etc on body load. 
 function renderHour() {
     var hourId = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"]
     for (let i = 0; i < hourId.length; i++) {
@@ -29,9 +30,42 @@ function renderHour() {
         $("#timeSheet").append(hourDiv)
     }
    renderClock()
+   hourly()
 }
 
 function renderClock() {
     $("#currentDay").text(moment().format('MMMM Do YYYY, h:mm:ss a'));
     setTimeout(renderClock, 1000);
 };
+
+function hourly(){
+    switch (currentHour) {
+        case "9am":
+
+        break;
+        case "10am":
+        
+        break;
+        case "11am":
+
+        break;
+        case "12pm":
+        
+        break;
+        case "1pm":
+
+        break;
+        case "2pm":
+        $("#2pm").addClass("present")
+        break;
+        case "3pm":
+
+        break;
+        case "4pm":
+        
+        break;
+        case "4pm":
+        
+        break;
+    }
+}
