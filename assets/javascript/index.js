@@ -17,20 +17,19 @@ var currentHour = moment().format('ha');
 
 //Create the rows and columns along with classes etc on body load. 
 function renderHour() {
+    // var hourName =["nineAm", "tenAm", "elevenAm", "twelvePm", "onePm", "twoPm", "threePm", "fourPm", "fivePm"]
     var hourId = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"]
     for (let i = 0; i < hourId.length; i++) {
-        var hourDiv = $("<div>", {
-            "class": "row",
-            "id": hourId[i]
-        })
-            .append('<div class="hour col-lg-2">')
-            .append('<textarea class="col-lg-8">')
-            .append('<div class="saveBtn col-lg-2">')
-
-        $("#timeSheet").append(hourDiv)
+        $("#timeSheet").append([
+            $('<div>', { "class": "row" }).append([
+                $('<div>', { "class": "hour col-lg-2" }),
+                $('<textarea>', { "class": "text col-lg-8", "id": hourId[i] }),
+                $('<div>', { "class": "saveBtn col-lg-2" }),
+            ])
+        ])
     }
-   renderClock()
-   hourly()
+    renderClock()
+    hourly()
 }
 
 function renderClock() {
@@ -38,34 +37,35 @@ function renderClock() {
     setTimeout(renderClock, 1000);
 };
 
-function hourly(){
+function hourly() {
     switch (currentHour) {
         case "9am":
 
-        break;
+            break;
         case "10am":
-        
-        break;
+
+            break;
         case "11am":
 
-        break;
+            break;
         case "12pm":
-        
-        break;
+
+            break;
         case "1pm":
 
-        break;
+            break;
         case "2pm":
-        $("#2pm").addClass("present")
-        break;
+            $("#2pm").addClass("present")
+            break;
         case "3pm":
+            $("#3pm").addClass("present");
+            break;
+        case "4pm":
+            $("#4pm").addClass("present");
+            // $(this).prevAll('.text').addClass("past");
+            break;
+        case "5pm":
 
-        break;
-        case "4pm":
-        
-        break;
-        case "4pm":
-        
-        break;
+            break;
     }
 }
