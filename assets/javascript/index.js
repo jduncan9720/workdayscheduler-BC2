@@ -1,19 +1,20 @@
 var currentDay = moment().format('MMMM Do YYYY, h:mm:ss a');
 var currentTime = moment().format('h:mm:ss a');
 var currentHour = moment().format('ha');
-
+var btnClick = "";
+var clickText = "";
+var todos = [];
 //Create the rows and columns along with classes etc on body load. 
 function renderHour() {
-    // var hourName =["nineAm", "tenAm", "elevenAm", "twelvePm", "onePm", "twoPm", "threePm", "fourPm", "fivePm"]
     var hourId = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"]
     for (let i = 0; i < hourId.length; i++) {
         $("#timeSheet").append([
             $('<div>', { "class": "row" })
-            .append([
-                $('<div>', { "class": "hour col-lg-2" }).text(hourId[i]),
-                $('<textarea>', { "class": "text col-lg-8", "id": hourId[i] }),
-                $('<div>', { "class": "saveBtn col-lg-2", "id": "hour" + [i]}).html('<i class="fas fa-save"></i>')
-            ])
+                .append([
+                    $('<div>', { "class": "hour col-lg-2" }).text(hourId[i]),
+                    $('<textarea>', { "class": "text col-lg-8", "id": hourId[i] }),
+                    $('<div>', { "class": "saveBtn col-lg-2", "id": "save" + [i] }).html('<i class="fas fa-save"></i>')
+                ])
         ])
     }
     renderClock()
@@ -70,9 +71,31 @@ function hourly() {
         case "5pm":
             $("#5pm").addClass("present").removeClass("future");
             $("#9am, #10am, #11am, #12pm, #1pm, #2pm, #3pm, #4pm").addClass("past").removeClass("present");
-            break;  
+            break;
     }
-    
+
 
     setTimeout(hourly, 1000);
+}
+
+$(document).ready(function () {
+    $(".saveBtn").click(function () {
+        btnClick = $(this).attr("id");
+        console.log(btnClick)
+        clickText = $(this).prev("textarea").val();
+        //This also worked
+        // clickText = $("#" + btnClick).prev("textarea").val();
+        console.log(clickText)
+        var todo = {
+            "clicked": btnClick,
+            "todoText": clickText
+        }
+        todos.push(todo)
+        localStorage.setItem("todos", JSON.stringify(todos))
+        
+    });
+});
+
+function diplayTodos (){
+   
 }
