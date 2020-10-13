@@ -10,9 +10,9 @@ function renderHour() {
         $("#timeSheet").append([
             $('<div>', { "class": "row" })
             .append([
-                $('<div>', { "class": "hour col-lg-2" }),
+                $('<div>', { "class": "hour col-lg-2" }).text(hourId[i]),
                 $('<textarea>', { "class": "text col-lg-8", "id": hourId[i] }),
-                $('<div>', { "class": "saveBtn col-lg-2", "id": "hour" + [i]}),
+                $('<div>', { "class": "saveBtn col-lg-2", "id": "hour" + [i]}).html('<i class="fas fa-save"></i>')
             ])
         ])
     }
