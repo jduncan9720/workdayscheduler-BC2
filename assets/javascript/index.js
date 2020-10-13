@@ -28,35 +28,51 @@ function renderClock() {
 function hourly() {
     switch (currentHour) {
         case "9am":
-
+            $("#9am").addClass("present").removeClass("future");
+            $("#10am, #11am, #12pm, #1pm, #2pm, #3pm, #4pm, #5pm").addClass("future").removeClass("present past");
             break;
         case "10am":
-
+            $("#10am").addClass("present").removeClass("future");
+            $("#9am").addClass("past").removeClass("present");
+            $("#11am, #12pm, #1pm, #2pm, #3pm, #4pm, #5pm").addClass("future").removeClass("present past");
             break;
         case "11am":
-
+            $("#11am").addClass("present").removeClass("future");
+            $("#9am, #10am").addClass("past").removeClass("present");
+            $("#12pm, #1pm, #2pm, #3pm, #4pm, #5pm").addClass("future").removeClass("present past");
             break;
         case "12pm":
-
+            $("#12pm").addClass("present").removeClass("future");
+            $("#9am, #10am, #11am").addClass("past").removeClass("present");
+            $("#1pm, #2pm, #3pm, #4pm, #5pm").addClass("future").removeClass("present past");
             break;
         case "1pm":
-
+            $("#1pm").addClass("present").removeClass("future");
+            $("#9am, #10am, #11am, #12pm").addClass("past").removeClass("present");
+            $("#2pm, #3pm, #4pm, #5pm").addClass("future").removeClass("present past");
             break;
         case "2pm":
-            $("#2pm").addClass("present")
+            $("#2pm").addClass("present").removeClass("future");
+            $("#9am, #10am, #11am, #12pm, #1pm").addClass("past").removeClass("present");
+            $("#3pm, #4pm, #5pm").addClass("future").removeClass("present past");
             break;
         case "3pm":
-            $("#3pm").addClass("present");
+            $("#3pm").addClass("present").removeClass("future");
+            $("#9am, #10am, #11am, #12pm, #1pm, #2pm").addClass("past").removeClass("present");
+            $("#4pm, #5pm").addClass("future").removeClass("present past");
             break;
         case "4pm":
-            $("#4pm").addClass("present");
+            $("#4pm").addClass("present").removeClass("future");
+            $("#9am, #10am, #11am, #12pm, #1pm, #2pm, #3pm").addClass("past").removeClass("present");
+            $("#5pm").addClass("future").removeClass("present past");
+
             break;
         case "5pm":
-            // $(".text").removeClass("past present future")
-            $("#5pm").addClass("present");
-            $(".saveBtn").prev().addClass("past");
-            // $(this).nextAll('.text').addClass("future");
+            $("#5pm").addClass("present").removeClass("future");
+            $("#9am, #10am, #11am, #12pm, #1pm, #2pm, #3pm, #4pm").addClass("past").removeClass("present");
             break;  
     }
+    
+
     setTimeout(hourly, 1000);
 }
