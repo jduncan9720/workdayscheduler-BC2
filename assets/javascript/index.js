@@ -19,6 +19,7 @@ function renderHour() {
     }
     renderClock()
     hourly()
+    
 }
 //Creates live clock in header
 function renderClock() {
@@ -80,6 +81,9 @@ function hourly() {
 
 $(document).ready(function () {
     $(".saveBtn").click(function () {
+        if (JSON.parse(localStorage.getItem("todos")) !== null) {
+            todos = JSON.parse(localStorage.getItem("todos"));
+        }
         btnClick = $(this).attr("id");
         console.log(btnClick)
         clickText = $(this).prev("textarea").val();
@@ -92,10 +96,17 @@ $(document).ready(function () {
         }
         todos.push(todo)
         localStorage.setItem("todos", JSON.stringify(todos))
-        
+        displayTodos()
     });
 });
 
-function diplayTodos (){
-   
+function displayTodos() {
+    var todosToShow = localStorage.getItem("todos")
+    console.log(todosToShow)
+    
 }
+
+$("#clearTodos").click(function () {
+    todos = [];
+    localStorage.setItem("todos", JSON.stringify(todos));
+});
