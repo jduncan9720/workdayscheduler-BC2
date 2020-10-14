@@ -3,7 +3,9 @@ var currentTime = moment().format('h:mm:ss a');
 var currentHour = moment().format('ha');
 var btnClick = "";
 var clickText = "";
-var todos = [];
+var todos = []
+var todosData = localStorage.getItem("todos")
+var todosReturned = JSON.parse(todosData);
 //Create the rows and columns along with classes etc on body load. 
 function renderHour() {
     var hourId = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"]
@@ -19,6 +21,7 @@ function renderHour() {
     }
     renderClock()
     hourly()
+    displayTodos()
     
 }
 //Creates live clock in header
@@ -96,14 +99,14 @@ $(document).ready(function () {
         }
         todos.push(todo)
         localStorage.setItem("todos", JSON.stringify(todos))
-        displayTodos()
+        
     });
 });
 
 function displayTodos() {
-    var todosToShow = localStorage.getItem("todos")
-    console.log(todosToShow)
-    
+    for (let i = 0; i < todosReturned.length; i++) {
+        $("#" + todosReturned[i].clicked).prev("textarea").text(todosReturned[i].todoText)  
+    }
 }
 
 $("#clearTodos").click(function () {
