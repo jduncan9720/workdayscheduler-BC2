@@ -112,4 +112,5 @@ function displayTodos() {
 $("#clearTodos").click(function () {
     todos = [];
     localStorage.setItem("todos", JSON.stringify(todos));
+    location.reload();
 });
