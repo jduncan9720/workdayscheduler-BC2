@@ -77,10 +77,17 @@ function hourly() {
             $("#9am, #10am, #11am, #12pm, #1pm, #2pm, #3pm, #4pm").addClass("past").removeClass("present");
             break;
     }
-
-
-    setTimeout(hourly, 1000);
 }
+
+function tick() {
+    //get the mins of the current time
+    var currentMin = moment().format("ss")
+    if (currentMin == "00") {
+      hourly()
+    }
+    console.log('Tick ' + currentMin);
+  }
+  setInterval(tick, 1000);
 
 $(document).ready(function () {
     $(".saveBtn").click(function () {
