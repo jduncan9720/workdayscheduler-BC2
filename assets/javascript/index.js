@@ -78,16 +78,6 @@ function hourly() {
     }
 }
 
-function tick() {
-    //get the mins of the current time
-    var currentMin = moment().format("ss")
-    if (currentMin == "00") {
-      hourly()
-    }
-    console.log('Tick ' + currentMin);
-  }
-  setInterval(tick, 1000);
-
 $(document).ready(function () {
     $(".saveBtn").click(function () {
         if (JSON.parse(localStorage.getItem("todos")) !== null) {
