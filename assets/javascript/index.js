@@ -14,7 +14,7 @@ function renderHour() {
             $('<div>', { "class": "row" })
                 .append([
                     $('<div>', { "class": "hour col-lg-2" }).text(hourId[i]),
-                    $('<textarea>', { "class": "text col-lg-8", "id": hourId[i] }),
+                    $('<textarea>', { "class": "text col-lg-8 past", "id": hourId[i] }),
                     $('<div>', { "class": "saveBtn col-lg-2", "id": "save" + [i] }).html('<i class="fas fa-save"></i>')
                 ])
         ])
@@ -70,7 +70,6 @@ function hourly() {
             $("#4pm").addClass("present").removeClass("future");
             $("#9am, #10am, #11am, #12pm, #1pm, #2pm, #3pm").addClass("past").removeClass("present");
             $("#5pm").addClass("future").removeClass("present past");
-
             break;
         case "5pm":
             $("#5pm").addClass("present").removeClass("future");
