@@ -1,18 +1,15 @@
 ## Work Day Scheduler
-## Javascript Quiz
 
-## Link to site:
-https://jduncan9720.github.io/javascriptquiz-BC2/
+## Link to deployed site:
+https://jduncan9720.github.io/workdayscheduler-BC2/
 
 ## Assignment:
-Create a multiple choice quiz using vanilla javascript.  The quiz must have a timer that counts down and time is deducted for wrong answers.  Correct answers will add points to the users score.  At the end of the quiz, your score will be displayed and may be saved in the local storage.  The user can click to see a list of scores from previous games and then empty the high scores or restart the quiz. 
+Create a work day scheduler using moment.js to keep track of time.  Using moment.js check time and highlight certain time blocks as past present or future.  Have data entered into the text areas saved in local storage to access on reloads etc. Most of the changes are made by adding and removing classes.  Most of my content is dynamically created. 
 
 ## Screenshots
-![alt text](https://github.com/jduncan9720/javascriptquiz-BC2/blob/main/images/quiz.png?raw=true)
+![alt text](https://github.com/jduncan9720/workdayscheduler-BC2/blob/main/assets/images/scheduler-1.png?raw=true)
 
-![alt text](https://github.com/jduncan9720/javascriptquiz-BC2/blob/main/images/gameover.png?raw=true)
-
-![alt text](https://github.com/jduncan9720/javascriptquiz-BC2/blob/main/images/highscores.png?raw=true)
+![alt text](https://github.com/jduncan9720/workdayscheduler-BC2/blob/main/assets/images/scheduler-2.png?raw=true)
 
 ## Technologies Used
 
@@ -20,6 +17,7 @@ Create a multiple choice quiz using vanilla javascript.  The quiz must have a ti
  - Css
  - Bootstrap
  - JavaScript
+ - Moment.js
  - Local Storage
  - VS Code
 
